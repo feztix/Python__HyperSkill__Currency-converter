@@ -8,11 +8,19 @@ def main(args=None):
     converter()
 
 
+def user_input():
+    number_of_conicoins = str(input("Please, enter the number of conicoins you have: "))
+    exchange_rate = str(input("Please, enter the exchange rate: "))
+
+    if ("." in number_of_conicoins) or ("." in exchange_rate):
+        return float(number_of_conicoins), float(exchange_rate)
+    else:
+        return int(number_of_conicoins), int(exchange_rate)
+
+
 def converter():
-    currency = int(input())
-    print(f'I have {currency} conicoins.')
-    print(f'{currency} conicoins cost {currency * 100} dollars.')
-    print(f'I am rich! Yippee!')
+    number_of_conicoins, exchange_rate = user_input()
+    print(f'The total amount of dollars: {(number_of_conicoins * exchange_rate)}')
 
 
 if __name__ == "__main__":
